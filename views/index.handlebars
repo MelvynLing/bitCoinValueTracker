@@ -21,7 +21,7 @@
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
         <h3>Recent Investments:</h3>
-        <table class="list-group" id="#investor-list">
+        <table id="#investor-table">
       <tr><th>Init $</th><th>Entry</th><th>Exit</th><th>BV</th><th>Net</th><th>G/L</th></tr>
 
           {{#each investors}}
@@ -33,10 +33,11 @@
             <td><a href="investor/{{this.id}}">{{this.bookValue}}</a></td>
             <td><a href="investor/{{this.id}}">{{this.netAmount}}</a></td>
             <td><a href="investor/{{this.id}}">{{this.gainLoss}}</a></td>
-            <td><button class="btn btn-danger float-right delete">ｘ</button></td>
+            <td><button class="btn btn-danger float-right delete deleteButton"  data-id="{{this.id}}">ｘ</button></td>
                                 </tr>
 
           {{/each}}
+          
 </table>
 
       </div>

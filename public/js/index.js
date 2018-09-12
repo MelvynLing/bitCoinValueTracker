@@ -6,7 +6,8 @@ var $bookValue = $initialAmount;
 var $netAmount = "test";
 var $gainLoss = "test";
 var $submitBtn = $("#submit");
-var $investor = $("#investor-list");
+var $investorTable = $("#investor-table");
+var $deleteButton = $(".deleteButton");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -39,16 +40,12 @@ var refreshInvestors = function() {
   API.getInvestors().then(function(data) {
     var $investors = data.map(function(investor) {
       var $a = $("<a>")
-/*        .text(example.id)
-        .text(example.text)
-        .text(example.description)
-        .text(example.newText) */
-
+        .text(investor.id)
         .attr("href", "/investor/" + investor.id);
 
-      var $li = $("<li>")
+      var $tr = $("<tr>")
         .attr({
-          class: "list-group-item",
+          class: "table-info-row",
           "data-id": investor.id
         })
         .append($a);
@@ -57,13 +54,13 @@ var refreshInvestors = function() {
         .addClass("btn btn-danger float-right delete")
         .text("ｘ");
 
-      $li.append($button);
+      $tr.append($button);
 
-      return $li;
+      return $tr;
     });
 
-    $investorList.empty();
-    $investorList.append($investors);
+    $investorTable.empty();
+    $investorTable.append($investors);
   });
 };
 
@@ -97,15 +94,16 @@ var handleFormSubmit = function(event) {
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+  var idToDelete = $(this).attr("data-id");
 
-  API.deleteInvestor(idToDelete).then(function() {
-    refreshInvestors();
-  });
+  API.deleteInvestor(idToDelete);
+  
+  
+  //.then(function() {
+    //refreshInvestors();
+ // });
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$investorList.on("click", ".delete", handleDeleteBtnClick);
+$deleteButton.on("click", handleDeleteBtnClick);
