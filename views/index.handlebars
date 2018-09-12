@@ -3,27 +3,42 @@
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
+        <h2>Bitcoin Value Charter</h2>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <label for="initialAmount">Initial Investment Amount</label>
+            <input type="text" id="initialAmount" class="form-control" aria-describedby="initial-Amount" placeholder="Ex. $1000">
           </div>
           <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+            <label for="entryDate">Entry Date (DD/MM/YYYY)</label>
+            <input type="text" id="entryDate" class="form-control" aria-describedby="entry-Date" placeholder="Ex. 05/10/2015">
+          </div>     
+          <div class="form-group">
+            <label for="exitDate">Exit Date (DD/MM/YYYY)</label>
+            <input type="text" id="exitDate" class="form-control" aria-describedby="exit-Date" placeholder="Ex. 04/11/2016">
           </div>
+          
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
+        <h3>Recent Investments:</h3>
+        <table class="list-group" id="#investor-list">
+      <tr><th>Init $</th><th>Entry</th><th>Exit</th><th>BV</th><th>Net</th><th>G/L</th></tr>
+
+          {{#each investors}}
+                             <tr data-id="{{this.id}}">
+
+            <td><a href="investor/{{this.id}}">{{this.initialAmount}}</a></td>
+            <td><a href="investor/{{this.id}}">{{this.entryDate}}</a></td>
+            <td><a href="investor/{{this.id}}">{{this.exitDate}}</a></td>
+            <td><a href="investor/{{this.id}}">{{this.bookValue}}</a></td>
+            <td><a href="investor/{{this.id}}">{{this.netAmount}}</a></td>
+            <td><a href="investor/{{this.id}}">{{this.gainLoss}}</a></td>
+            <td><button class="btn btn-danger float-right delete">ｘ</button></td>
+                                </tr>
+
           {{/each}}
-        </ul>
+</table>
+
       </div>
     </div>
   </div>
