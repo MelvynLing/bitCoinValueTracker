@@ -21,9 +21,9 @@
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
         <h3>Recent Investments:</h3>
-        <table id="#investor-table">
+        <table>
       <tr><th>Init $</th><th>Entry</th><th>Exit</th><th>BV</th><th>Net</th><th>G/L</th></tr>
-
+<tbody id="investor-table-body">
           {{#each investors}}
                              <tr data-id="{{this.id}}">
 
@@ -37,7 +37,7 @@
                                 </tr>
 
           {{/each}}
-          
+       </tbody>   
 </table>
 
       </div>

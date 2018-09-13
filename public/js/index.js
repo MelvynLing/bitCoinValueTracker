@@ -6,7 +6,7 @@ var $bookValue = $initialAmount;
 var $netAmount = "test";
 var $gainLoss = "test";
 var $submitBtn = $("#submit");
-var $investorTable = $("#investor-table");
+var $investorTableBody = $("#investor-table-body");
 var $deleteButton = $(".deleteButton");
 
 // The API object contains methods for each kind of request we'll make
@@ -39,29 +39,28 @@ var API = {
 var refreshInvestors = function() {
   API.getInvestors().then(function(data) {
     var $investors = data.map(function(investor) {
-      var $a = $("<a>")
+  //  alert(investor.id);
+   //  testAppend = "<td>test123</td>";
+
+    trAppend = "<tr><td>" + investor.initialAmount + "</td><td>" + investor.entryDate + "</td><td>" + investor.exitDate + "</td><td>" + investor.bookValue + "</td><td>" + investor.netAmount + "</td><td>" + investor.gainLoss + "</td></tr>";
+
+       /*  var $a = $("<a>")
         .text(investor.id)
         .attr("href", "/investor/" + investor.id);
-
-      var $tr = $("<tr>")
-        .attr({
-          class: "table-info-row",
-          "data-id": investor.id
-        })
-        .append($a);
 
       var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
         .text("ｘ");
 
       $tr.append($button);
+  */ 
+     return trAppend;
 
-      return $tr;
-    });
-
-    $investorTable.empty();
-    $investorTable.append($investors);
+     });
+     $investorTableBody.empty();
+     $investorTableBody.append($investors);
   });
+
 };
 
 // handleFormSubmit is called whenever we submit a new example
@@ -96,12 +95,9 @@ var handleFormSubmit = function(event) {
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this).attr("data-id");
 
-  API.deleteInvestor(idToDelete);
-  
-  
-  //.then(function() {
-    //refreshInvestors();
- // });
+  API.deleteInvestor(idToDelete).then(function() {
+    refreshInvestors();
+  });
 };
 
 // Add event listeners to the submit and delete buttons
