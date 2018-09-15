@@ -42,6 +42,8 @@ var refreshInvestors = function() {
   //  alert(investor.id);
    //  testAppend = "<td>test123</td>";
 
+   console.log(investor.initialAmount);
+
     trAppend = "<tr><td>" + investor.initialAmount + "</td><td>" + investor.entryDate + "</td><td>" + investor.exitDate + "</td><td>" + investor.bookValue + "</td><td>" + investor.netAmount + "</td><td>" + investor.gainLoss + "</td></tr>";
 
        /*  var $a = $("<a>")
