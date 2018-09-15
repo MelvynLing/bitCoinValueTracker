@@ -115,13 +115,13 @@ var handleFormSubmit = function(event) {
       console.log(dateArray);
       //console.log(investor.entryDate);
       //console.log(investor.exitDate);
-      var rateStateDate = dateArray[investor.entryDate];
+      var rateStartDate = dateArray[investor.entryDate];
       //console.log(data.bpi[entryDate]);
-      console.log(rateStateDate);
+      console.log(rateStartDate);
       var rateEndDate = dateArray[investor.exitDate];
       //console.log(data.bpi[exitDate]);
       console.log(rateEndDate);
-      var startDateAmount = investor.initialAmount / rateStateDate;
+      var startDateAmount = investor.initialAmount / rateStartDate;
       console.log(startDateAmount);
       var endDateAmount = investor.initialAmount / rateEndDate;
       console.log(endDateAmount);
@@ -129,7 +129,6 @@ var handleFormSubmit = function(event) {
       console.log(netLossProfit);
       var cadNetLossProfit = netLossProfit * investor.initialAmount;
       console.log(cadNetLossProfit);
-
     }
   );
 };
