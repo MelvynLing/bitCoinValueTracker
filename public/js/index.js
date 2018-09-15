@@ -39,14 +39,25 @@ var API = {
 var refreshInvestors = function() {
   API.getInvestors().then(function(data) {
     var $investors = data.map(function(investor) {
-  //  alert(investor.id);
-   //  testAppend = "<td>test123</td>";
+      //  alert(investor.id);
+      //  testAppend = "<td>test123</td>";
 
-   console.log(investor.initialAmount);
+      trAppend =
+        "<tr><td>" +
+        investor.initialAmount +
+        "</td><td>" +
+        investor.entryDate +
+        "</td><td>" +
+        investor.exitDate +
+        "</td><td>" +
+        investor.bookValue +
+        "</td><td>" +
+        investor.netAmount +
+        "</td><td>" +
+        investor.gainLoss +
+        "</td></tr>";
 
-    trAppend = "<tr><td>" + investor.initialAmount + "</td><td>" + investor.entryDate + "</td><td>" + investor.exitDate + "</td><td>" + investor.bookValue + "</td><td>" + investor.netAmount + "</td><td>" + investor.gainLoss + "</td></tr>";
-
-       /*  var $a = $("<a>")
+      /*  var $a = $("<a>")
         .text(investor.id)
         .attr("href", "/investor/" + investor.id);
 
@@ -55,22 +66,25 @@ var refreshInvestors = function() {
         .text("ｘ");
 
       $tr.append($button);
-  */ 
-     return trAppend;
+  */
+      //console.log(investor.initialAmount);
+      //var dumb = "" + investor.initialAmount;
+      //console.log(dumb);
 
-     });
-     $investorTableBody.empty();
-     $investorTableBody.append($investors);
+      return trAppend;
+    });
+    $investorTableBody.empty();
+    $investorTableBody.append($investors);
   });
-
 };
+
+//console.log(investor.initialAmount);
+//console.log(initialAmount);
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
-
-
 
   var investor = {
     initialAmount: $initialAmount.val().trim(),
@@ -81,8 +95,6 @@ var handleFormSubmit = function(event) {
     gainLoss: $gainLoss
   };
 
-
-
   API.saveInvestor(investor).then(function() {
     refreshInvestors();
   });
@@ -90,6 +102,45 @@ var handleFormSubmit = function(event) {
   $initialAmount.val("");
   $entryDate.val("");
   $exitDate.val("");
+
+  $.getJSON(
+    "https://api.coindesk.com/v1/bpi/historical/close.json?start=" +
+      investor.entryDate +
+      "&end=" +
+      investor.exitDate +
+      "&currency=CAD",
+    function(data) {
+      var dateArray = data.bpi;
+      //console.log(data.bpi);
+      console.log(dateArray);
+      //console.log(investor.entryDate);
+      //console.log(investor.exitDate);
+      var rateStateDate = dateArray[investor.entryDate];
+      //console.log(data.bpi[entryDate]);
+      console.log(rateStateDate);
+      var rateEndDate = dateArray[investor.exitDate];
+      //console.log(data.bpi[exitDate]);
+      console.log(rateEndDate);
+      var startDateAmount = investor.initialAmount / rateStateDate;
+      console.log(startDateAmount);
+      var endDateAmount = investor.initialAmount / rateEndDate;
+      console.log(endDateAmount);
+      var netLossProfit = startDateAmount - endDateAmount;
+      console.log(netLossProfit);
+      var cadNetLossProfit = netLossProfit * endDateAmount;
+      console.log(cadNetLossProfit);
+      var finalamount = cadNetLossProfit * rateEndDate;
+      console.log(finalamount);
+    }
+  );
+
+  //console.log(investor.initialAmount);
+  //var dumb = "" + investor.initialAmount;
+  //console.log(dumb);
+
+  //console.log($initialAmount);
+  //console.log($entryDate);
+  //console.log($exitDate);
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
