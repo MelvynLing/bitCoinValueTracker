@@ -127,20 +127,11 @@ var handleFormSubmit = function(event) {
       console.log(endDateAmount);
       var netLossProfit = startDateAmount - endDateAmount;
       console.log(netLossProfit);
-      var cadNetLossProfit = netLossProfit * endDateAmount;
+      var cadNetLossProfit = netLossProfit * investor.initialAmount;
       console.log(cadNetLossProfit);
-      var finalamount = cadNetLossProfit * rateEndDate;
-      console.log(finalamount);
+
     }
   );
-
-  //console.log(investor.initialAmount);
-  //var dumb = "" + investor.initialAmount;
-  //console.log(dumb);
-
-  //console.log($initialAmount);
-  //console.log($entryDate);
-  //console.log($exitDate);
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
