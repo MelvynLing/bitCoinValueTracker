@@ -27,12 +27,12 @@
           {{#each investors}}
                              <tr data-id="{{this.id}}">
 
-            <td><a href="investor/{{this.id}}">{{this.initialAmount}}</a></td>
-            <td><a href="investor/{{this.id}}">{{this.entryDate}}</a></td>
-            <td><a href="investor/{{this.id}}">{{this.exitDate}}</a></td>
-            <td><a href="investor/{{this.id}}">{{this.bookValue}}</a></td>
-            <td><a href="investor/{{this.id}}">{{this.netAmount}}</a></td>
-            <td><a href="investor/{{this.id}}">{{this.gainLoss}}</a></td>
+            <td>{{this.initialAmount}}</td>
+            <td>{{this.entryDate}}</td>
+            <td>{{this.exitDate}}</td>
+            <td>{{this.bookValue}}</td>
+            <td>{{this.netAmount}}</td>
+            <td>{{this.gainLoss}}</td>
             <td><button class="btn btn-danger float-right delete deleteButton"  data-id="{{this.id}}">ｘ</button></td>
                                 </tr>
 

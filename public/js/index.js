@@ -42,6 +42,12 @@ var refreshInvestors = function() {
       //  alert(investor.id);
       //  testAppend = "<td>test123</td>";
 
+      var $tr = $("<tr>")
+        .attr({
+          "data-id": investor.id
+        })
+        .append($tr);
+
       trAppend =
         "<tr><td>" +
         investor.initialAmount +
@@ -57,16 +63,14 @@ var refreshInvestors = function() {
         investor.gainLoss +
         "</td></tr>";
 
-      /*  var $a = $("<a>")
-        .text(investor.id)
-        .attr("href", "/investor/" + investor.id);
-
+      //  var $a = $("<a>")
+      //.text(investor.id)
+      //attr("href", "/investor/" + investor.id);
       var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
         .text("ｘ");
-
       $tr.append($button);
-  */
+
       //console.log(investor.initialAmount);
       //var dumb = "" + investor.initialAmount;
       //console.log(dumb);
