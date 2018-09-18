@@ -2,7 +2,7 @@
 var $initialAmount = $("#initialAmount");
 var $entryDate = $("#entryDate");
 var $exitDate = $("#exitDate");
-var $bookValue = $initialAmount;
+
 var $netAmount = "test";
 var $gainLoss = "test";
 var $submitBtn = $("#submit");
@@ -57,8 +57,6 @@ var refreshInvestors = function() {
         "</td><td>" +
         investor.exitDate +
         "</td><td>" +
-        investor.bookValue +
-        "</td><td>" +
         investor.netAmount +
         "</td><td>" +
         investor.gainLoss +
@@ -98,7 +96,6 @@ var handleFormSubmit = function(event) {
     initialAmount: $initialAmount.val().trim(),
     entryDate: $entryDate.val().trim(),
     exitDate: $exitDate.val().trim(),
-    bookValue: $bookValue.val().trim(),
     netAmount: $netAmount,
     gainLoss: $gainLoss
   };

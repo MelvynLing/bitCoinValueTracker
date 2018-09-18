@@ -3,43 +3,58 @@
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
+        <br>
         <h2>Bitcoin Value Charter</h2>
-<form class="clearfix mb-4" action="POST"  data-parsley-validate>
+        <br>
+
+
+<form class="clearfix mb-4" action="POST" >
           <div class="form-group">
-            <label for="initialAmount">Initial Investment Amount:*</label>
+            <label for="initialAmount">Initial Investment Amount in Canadian Dollars:</label>
             <input  
             id="initialAmount" 
             class="form-control" 
             aria-describedby="initial-Amount" 
             placeholder="Ex. $1000" 
-            data-parsley-type="digits"
-            data-parsley=range='[0, 1000000000]' 
-            required />
+            
+            />
           </div>
           <div class="form-group">
-            <label for="entryDate">Entry Date (YYYY-MM-DD)</label>
+            <label for="entryDate"> Investment Entry Date: (YYYY-MM-DD)</label>
             <input 
             type="date" 
             id="entryDate" 
             class="form-control" 
             aria-describedby="entry-Date" 
-            placeholder="Ex. 2015-05-03" 
-            data-parsley=range='[2009-01-03, ]' 
-            required />
+            placeholder="No earlier than 2010-07-17 please!" 
+          
+            />
           </div>     
           <div class="form-group">
-            <label for="exitDate">Exit Date (YYYY-MM-DD)</label>
+            <label for="exitDate">Investment Exit Date: (YYYY-MM-DD)</label>
             <input 
             type="date" 
             id="exitDate" 
-            class="form-control" aria-describedby="exit-Date" placeholder="Ex. 2015-06-06" data-parsley=range='{2009-01-03, 10]' required />
+            class="form-control" 
+            aria-describedby="exit-Date" 
+            placeholder="No Future dates!" 
+
+            />
           </div>
           
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+          <button id="submit" class="btn btn-primary float-right" >Submit</button>
         </form>
         <h3>Recent Investments:</h3>
-        <table>
-      <tr><th>Init $</th><th>Entry</th><th>Exit</th><th>BV</th><th>Net</th><th>G/L</th></tr>
+        <table  class="table table-hover table-sm text-center">
+      <thead>
+        <tr>
+          <th scope="col">Initial Investment in CAD</th>
+          <th scope="col">Investment Entry Date</th>
+          <th scope="col">Investment Exit Date</th>
+          <th scope="col">Final BitCoin Amount</th>
+          <th scope="col">Gain or Loss in CAD</th>
+        </tr>
+      </thead>
 <tbody id="investor-table-body">
           {{#each investors}}
                              <tr data-id="{{this.id}}">
@@ -47,7 +62,6 @@
             <td>{{this.initialAmount}}</td>
             <td>{{this.entryDate}}</td>
             <td>{{this.exitDate}}</td>
-            <td>{{this.bookValue}}</td>
             <td>{{this.netAmount}}</td>
             <td>{{this.gainLoss}}</td>
             <td><button class="btn btn-danger float-right delete deleteButton"  data-id="{{this.id}}">ｘ</button></td>

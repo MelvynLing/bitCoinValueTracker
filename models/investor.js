@@ -17,7 +17,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAfter: "2009-01-09"
+        isBefore: moment,
+        isAfter: "2010-07-17"
       }
     },
 
@@ -26,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         isBefore: moment,
-        isAfter: "2009-01-09"
+        isAfter: "2010-07-17"
       }
     },
 
