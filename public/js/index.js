@@ -42,11 +42,11 @@ var refreshInvestors = function() {
       //  alert(investor.id);
       //  testAppend = "<td>test123</td>";
 
-      var $tr = $("<tr>")
-        .attr({
-          "data-id": investor.id
-        })
-        .append($tr);
+     // var $tr = $("<tr>")
+     //   .attr({
+    //      "data-id": investor.id
+    //    })
+     //   .append($tr);
 
       trAppend =
         "<tr><td>" +
@@ -61,15 +61,16 @@ var refreshInvestors = function() {
         investor.netAmount +
         "</td><td>" +
         investor.gainLoss +
-        "</td></tr>";
+        "</td>" + 
+        '<td><button class="btn btn-danger float-right delete deleteButton" data-id="'+ investor.id + '">ｘ</button></td></tr>';
 
       //  var $a = $("<a>")
       //.text(investor.id)
       //attr("href", "/investor/" + investor.id);
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-      $tr.append($button);
+      //var $button = $("<button>")
+       // .addClass("btn btn-danger float-right delete")
+       // .text("ｘ");
+      // $tr.append($button);
 
       //console.log(investor.initialAmount);
       //var dumb = "" + investor.initialAmount;
@@ -99,9 +100,7 @@ var handleFormSubmit = function(event) {
     gainLoss: $gainLoss
   };
 
-  API.saveInvestor(investor).then(function() {
-    refreshInvestors();
-  });
+
 
   $initialAmount.val("");
   $entryDate.val("");
@@ -129,10 +128,18 @@ var handleFormSubmit = function(event) {
       console.log(startDateAmount);
       var endDateAmount = investor.initialAmount / rateEndDate;
       console.log(endDateAmount);
+
       var netLossProfit = startDateAmount - endDateAmount;
       console.log(netLossProfit);
+      investor.netAmount = netLossProfit;
       var cadNetLossProfit = netLossProfit * investor.initialAmount;
       console.log(cadNetLossProfit);
+      investor.gainLoss = cadNetLossProfit;
+
+      API.saveInvestor(investor).then(function() {
+        refreshInvestors();
+      });
+
     }
   );
 };

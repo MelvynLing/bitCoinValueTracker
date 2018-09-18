@@ -1,11 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
   var Investor = sequelize.define("Investor", {
-    initialAmount: DataTypes.STRING,
+    initialAmount: DataTypes.INTEGER,
     entryDate: DataTypes.STRING,
     exitDate: DataTypes.STRING,
-    bookValue: DataTypes.STRING,
-    netAmount: DataTypes.STRING,
-    gainLoss: DataTypes.STRING
+    bookValue: DataTypes.INTEGER,
+    netAmount: DataTypes.INTEGER,
+    gainLoss: DataTypes.INTEGER
   });
   return Investor;
 };
