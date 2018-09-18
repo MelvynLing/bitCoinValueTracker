@@ -37,6 +37,7 @@ var API = {
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshInvestors = function() {
+  console.log("refrsh");
   API.getInvestors().then(function(data) {
     var $investors = data.map(function(investor) {
       //  alert(investor.id);
@@ -154,6 +155,7 @@ var handleFormSubmit = function(event) {
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this).attr("data-id");
+  console.log(idToDelete);
 
   API.deleteInvestor(idToDelete).then(function() {
     refreshInvestors();
