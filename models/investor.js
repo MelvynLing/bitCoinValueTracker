@@ -30,13 +30,6 @@ module.exports = function(sequelize, DataTypes) {
         isAfter: "2010-07-17"
       }
     },
-
-    bookValue: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {}
-    },
-
     netAmount: {
       type: DataTypes.INTEGER,
       allowNull: false,
