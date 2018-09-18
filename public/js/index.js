@@ -129,7 +129,13 @@ var handleFormSubmit = function(event) {
       var endDateAmount = investor.initialAmount / rateEndDate;
       console.log(endDateAmount);
 
-      var netLossProfit = startDateAmount - endDateAmount;
+      if (startDateAmount > endDateAmount) {
+        var netLossProfit = startDateAmount - endDateAmount;
+      }
+      else {
+        var netLossProfit = endDateAmount - startDateAmount;
+      }
+
       console.log(netLossProfit);
       investor.netAmount = netLossProfit;
       var cadNetLossProfit = netLossProfit * investor.initialAmount;
