@@ -43,11 +43,11 @@ var refreshInvestors = function() {
       //  alert(investor.id);
       //  testAppend = "<td>test123</td>";
 
-     // var $tr = $("<tr>")
-     //   .attr({
-    //      "data-id": investor.id
-    //    })
-     //   .append($tr);
+      // var $tr = $("<tr>")
+      //   .attr({
+      //      "data-id": investor.id
+      //    })
+      //   .append($tr);
 
       trAppend =
         "<tr><td>" +
@@ -62,15 +62,17 @@ var refreshInvestors = function() {
         investor.netAmount +
         "</td><td>" +
         investor.gainLoss +
-        "</td>" + 
-        '<td><button class="btn btn-danger float-right delete deleteButton" data-id="'+ investor.id + '">ｘ</button></td></tr>';
+        "</td>" +
+        "<td><button class=\"btn btn-danger float-right delete deleteButton\" data-id=\"" +
+        investor.id +
+        "\">ｘ</button></td></tr>";
 
       //  var $a = $("<a>")
       //.text(investor.id)
       //attr("href", "/investor/" + investor.id);
       //var $button = $("<button>")
-       // .addClass("btn btn-danger float-right delete")
-       // .text("ｘ");
+      // .addClass("btn btn-danger float-right delete")
+      // .text("ｘ");
       // $tr.append($button);
 
       //console.log(investor.initialAmount);
@@ -101,8 +103,6 @@ var handleFormSubmit = function(event) {
     gainLoss: $gainLoss
   };
 
-
-
   $initialAmount.val("");
   $entryDate.val("");
   $exitDate.val("");
@@ -132,21 +132,19 @@ var handleFormSubmit = function(event) {
 
       if (startDateAmount > endDateAmount) {
         var netLossProfit = startDateAmount - endDateAmount;
-      }
-      else {
+      } else {
         var netLossProfit = endDateAmount - startDateAmount;
       }
 
       console.log(netLossProfit);
-      investor.netAmount = netLossProfit;
+      investor.netAmount = netLossProfit.toFixed(2);
       var cadNetLossProfit = netLossProfit * investor.initialAmount;
       console.log(cadNetLossProfit);
-      investor.gainLoss = cadNetLossProfit;
+      investor.gainLoss = cadNetLossProfit.toFixed(2);
 
       API.saveInvestor(investor).then(function() {
         refreshInvestors();
       });
-
     }
   );
 };

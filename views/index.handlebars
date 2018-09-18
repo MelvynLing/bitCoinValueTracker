@@ -4,18 +4,35 @@
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
         <h2>Bitcoin Value Charter</h2>
-<form class="clearfix mb-4" action="POST">
+<form class="clearfix mb-4" action="POST"  data-parsley-validate>
           <div class="form-group">
-            <label for="initialAmount">Initial Investment Amount</label>
-            <input type="text" id="initialAmount" class="form-control" aria-describedby="initial-Amount" placeholder="Ex. $1000" data-parsley-type="digits" required="">
+            <label for="initialAmount">Initial Investment Amount:*</label>
+            <input  
+            id="initialAmount" 
+            class="form-control" 
+            aria-describedby="initial-Amount" 
+            placeholder="Ex. $1000" 
+            data-parsley-type="digits"
+            data-parsley=range='[0, 1000000000]' 
+            required />
           </div>
           <div class="form-group">
             <label for="entryDate">Entry Date (YYYY-MM-DD)</label>
-            <input type="date" id="entryDate" class="form-control" aria-describedby="entry-Date" placeholder="Ex. 2015-05-03">
+            <input 
+            type="date" 
+            id="entryDate" 
+            class="form-control" 
+            aria-describedby="entry-Date" 
+            placeholder="Ex. 2015-05-03" 
+            data-parsley=range='[2009-01-03, ]' 
+            required />
           </div>     
           <div class="form-group">
             <label for="exitDate">Exit Date (YYYY-MM-DD)</label>
-            <input type="date" id="exitDate" class="form-control" aria-describedby="exit-Date" placeholder="Ex. 2015-06-06">
+            <input 
+            type="date" 
+            id="exitDate" 
+            class="form-control" aria-describedby="exit-Date" placeholder="Ex. 2015-06-06" data-parsley=range='{2009-01-03, 10]' required />
           </div>
           
           <button id="submit" class="btn btn-primary float-right">Submit</button>
@@ -47,3 +64,5 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+
+
