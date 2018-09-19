@@ -44,12 +44,18 @@
             />
           </div>
             <br>
-          <button id="submit" class="btn-large red pulse btn waves-effect waves-light right" >Submit</button>
+          <button id="submit" onclick="glp" class="btn-large blue pulse btn waves-effect waves-light right" >Submit</button>
         </div>
         </form>
         <div class="col s1"></div>
 </div>
 <div class="row"></div>
+</div>
+</div>
+
+<div class="row">
+<div class="container">
+  <img id="glp" src="">
 </div>
 </div>
         <h3>Recent Investments:</h3>
@@ -76,8 +82,8 @@
             <td>{{this.entryDate}}</td>
             <td>{{this.exitDate}}</td>
             <td>{{this.netAmount}}</td>
-            <td>{{this.gainLoss}}</td>
-            <td><button class="btn btn-danger float-right delete deleteButton"  data-id="{{this.id}}">ｘ</button></td>
+            <td id="myDIV">{{this.gainLoss}}</td>
+            <td><button class="btn red float-right delete deleteButton"  data-id="{{this.id}}">ｘ</button></td>
                                 </tr>
 
           {{/each}}
