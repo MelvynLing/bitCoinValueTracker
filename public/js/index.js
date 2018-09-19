@@ -62,7 +62,7 @@ var refreshInvestors = function() {
         "</td><td>" +
         investor.gainLoss +
         "</td>" +
-        "<td><button class='btn btn-danger float-right delete deleteButton' data-id='" +
+        "<td><button class='btn red float-right delete deleteButton' data-id='" +
         investor.id +
         "'>ｘ</button></td></tr>";
 
@@ -73,10 +73,6 @@ var refreshInvestors = function() {
       // .addClass("btn btn-danger float-right delete")
       // .text("ｘ");
       // $tr.append($button);
-
-      //console.log(investor.initialAmount);
-      //var dumb = "" + investor.initialAmount;
-      //console.log(dumb);
 
       return trAppend;
     });
@@ -146,6 +142,12 @@ var handleFormSubmit = function(event) {
         document.getElementById("glp").src =
           "../styles/images/losingbitcoin.jpg";
       }
+      //
+      //      if (cadNetLossProfit > 0) {
+      //        document.getElementsById("glcc").style.backgroundColor = "#ccffcc";
+      //      } else {
+      //        document.getElementsById("glcc").style.backgroundColor = "#ffcccc";
+      //      }
 
       API.saveInvestor(investor).then(function() {
         refreshInvestors();
