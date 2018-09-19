@@ -133,7 +133,7 @@ var handleFormSubmit = function(event) {
       }
 
       console.log(netLossProfit);
-      investor.netAmount = netLossProfit.toFixed(2);
+      investor.netAmount = netLossProfit.toFixed(6);
       var cadNetLossProfit = netLossProfit * investor.initialAmount;
       console.log(cadNetLossProfit);
       investor.gainLoss = cadNetLossProfit.toFixed(2);
