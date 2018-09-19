@@ -1,3 +1,27 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+body {
+  background-image: linear-gradient(to right top, #ffe8bc, #ffe7d5, #ffedf0, #fff7ff, #ffffff);;
+}
+
+.cards {
+  background: whitesmoke;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.nav-wrapper {
+  background-color: #000033; 
+
+}
+
+.page-footer{
+
+  background-color: #000033; 
+}
+
+.footer-copyright {
+  background-color: black;
+}
