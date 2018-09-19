@@ -139,14 +139,14 @@ var handleFormSubmit = function(event) {
       var cadNetLossProfit = netLossProfit * investor.initialAmount;
       console.log(cadNetLossProfit);
       investor.gainLoss = cadNetLossProfit.toFixed(2);
-/*
-    if (investor.gainLoss > 0) {
 
-    document.getElementById("glp").src = "public/css/img"";
-    } else {
+      if (investor.gainLoss > 0) {
+        document.getElementById("glp").src = "../styles/images/bitcoins.jpg";
+      } else {
+        document.getElementById("glp").src =
+          "../styles/images/losingbitcoin.jpg";
+      }
 
-    };
-*/
       API.saveInvestor(investor).then(function() {
         refreshInvestors();
       });
@@ -170,4 +170,3 @@ var handleDeleteBtnClick = function() {
 $submitBtn.on("click", handleFormSubmit);
 // $deleteButton.on("click", handleDeleteBtnClick);
 $investorTable.on("click", $deleteButton, handleDeleteBtnClick);
-
