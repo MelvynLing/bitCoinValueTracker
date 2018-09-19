@@ -8,6 +8,7 @@ var $gainLoss = "test";
 var $submitBtn = $("#submit");
 var $investorTableBody = $("#investor-table-body");
 var $deleteButton = $(".deleteButton");
+var $investorTable = $("#investorTable");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -60,10 +61,8 @@ var refreshInvestors = function() {
         investor.netAmount +
         "</td><td>" +
         investor.gainLoss +
-        "</td>" +
-        "<td><button class=\"btn btn-danger float-right delete deleteButton\" data-id=\"" +
-        investor.id +
-        "\">ｘ</button></td></tr>";
+        "</td>" + 
+        '<td><button class="btn btn-danger float-right delete deleteButton" data-id="'+ investor.id + '">ｘ</button></td></tr>';
 
       //  var $a = $("<a>")
       //.text(investor.id)
@@ -149,7 +148,8 @@ var handleFormSubmit = function(event) {
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
-  var idToDelete = $(this).attr("data-id");
+  var $deleteButton = $(".deleteButton");
+  var idToDelete = $($deleteButton).attr("data-id");
   console.log(idToDelete);
 
   API.deleteInvestor(idToDelete).then(function() {
@@ -159,4 +159,5 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$deleteButton.on("click", handleDeleteBtnClick);
+// $deleteButton.on("click", handleDeleteBtnClick);
+$investorTable.on("click", $deleteButton, handleDeleteBtnClick);
