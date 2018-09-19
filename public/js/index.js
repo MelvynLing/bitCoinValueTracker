@@ -128,6 +128,7 @@ var handleFormSubmit = function(event) {
         var netLossProfit = startDateAmount - endDateAmount;
       } else {
         var netLossProfit = endDateAmount - startDateAmount;
+        netLossProfit = netLossProfit * -1;
       }
 
       console.log(netLossProfit);
