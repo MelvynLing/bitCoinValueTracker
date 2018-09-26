@@ -17,6 +17,11 @@ body {
 
 }
 
+.imgnlp{
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
 .page-footer{
   background-color: #000033; 
 }
@@ -24,3 +29,17 @@ body {
 .footer-copyright {
   background-color: black;
 }
+
+  /* label color */
+   .input-field label {
+     color: red;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color:red !important;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid red;
+     box-shadow: 0 1px 0 0 red;
+   }

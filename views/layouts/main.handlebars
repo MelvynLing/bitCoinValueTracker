@@ -41,7 +41,7 @@
             <div class="row">
               <div class="col l6 s12">                
                 <h5 class="white-text">APIs</h5>
-                <p class="grey-text text-lighten-4">This App was created with the help of the Coindesk API.</p>
+                <p class="grey-text text-lighten-4">This App was created with the help of the <a href="https://www.coindesk.com/price/">Coindesk API.</a></p>
               </div>
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Creators:</h5>
@@ -62,12 +62,40 @@
           </div>
         </footer>
 </body>
+
+<script src="/js/index.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({
   duration: 1200,
 })
 </script>
+<script>
+  function validate(){
+    if(document.btcForm.initialAmount.value == "")
+    {
+      alert("Please enter a Canadian Dollar Amount!");
+      document.btcForm.initialAmount.focus();
+      return false;
+    }
+    if(document.btcForm.entryDate.value == "")
+    {
+      alert("Please enter a date after 2010-07-17!");
+      document.btcForm.entryDate.focus();
+      return false;
+    } 
+    if(document.btcForm.exitDate.value == "")
+    {
+      alert("Please enter a date before today!");
+      document.btcForm.exitDate.focus();
+      return false;
+    }
+    return(true);
+  }
+</script>
 
-       
 </html>
