@@ -2,7 +2,7 @@
 
 ## Check out the live app: https://gentle-spire-69297.herokuapp.com
 
-[]
+![](assets/bct1.png)
 
 **Created by:**
 * Melvyn Ling *(Front-end design and logic, API calls, profitability logic)* 
@@ -36,19 +36,19 @@ The node application makes use of MySQL to store use inquiries in a database whi
 
 ### Instructions:
 
-[]
+![](assets/bct2.png)
 
 * On load, the user is presented with a blank page as above. Here, you can see a form. with this form you can enter an amout you would like to inquire about, as well as a bitcoin investment entry date and a bitcoin investment exit date. Once this is complete, the user can hit submit.
 
-[]
+![](assets/bitcoin.jpg)
 
 * if the user's inquire is a profitable one they are presented with this image. 
 
-[]
+![](assets/losingbitcoin.jpg)
 
 * if the user's inquire is an unprofitable one, they are presented with this image. 
 
-[]
+![](assets/bct1.png)
 
 * regardless if the user's inuqire is profitable or not, it is stored in the chart below which stores all users past inquires. 
 
