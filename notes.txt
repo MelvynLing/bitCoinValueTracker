@@ -1,0 +1,19 @@
+add validation
+	-use date-fn for date validation. to confirm if the date enter 
+		(first date) is after the second (the user input date).
+		-NEED TO USE MODALS/ALERTS for front end user validation.
+			-backe end validation is fine.
+
+
+ICE BOX
+	-USER INPUT/comments on gains/losses
+	-CHARTS for new user input. line chart showing dates/prices. 
+		coloured green if a profit. coloured red if negative.
+		another chart for the other data.
+	-GIF and SOUNDS on positive/negative returns.
+	-ADD BITCOIN NEWS SECTION
+	-ADD CURRENT EXCHANGE RATE SECTION
+	-ADD CURRENT EXCHANGE RATE CALCULATOR
+	-ADD Ability to change fiat money.
+	-ADD A WALLET
+
