@@ -40,7 +40,7 @@ The node application makes use of MySQL to store use inquiries in a database whi
 
 * On load, the user is presented with a blank page as above. Here, you can see a form. with this form you can enter an amout you would like to inquire about, as well as a bitcoin investment entry date and a bitcoin investment exit date. Once this is complete, the user can hit submit.
 
-![](assets/bitcoin.jpg)
+![](assets/bitcoins.jpg)
 
 * if the user's inquire is a profitable one they are presented with this image. 
 
